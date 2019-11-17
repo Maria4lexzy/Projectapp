@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_menu"
+            android:icon="@drawable/ic_menu"
+            android:title="Menu Card" />
+        <item
+            android:id="@+id/nav_coupons"
+            android:icon="@drawable/ic_chat"
+            android:title="Coupons" />
+        <item
+            android:id="@+id/nav_family_club"
+            android:icon="@drawable/bones_logo"
+            android:title="Bone\'s Family Club" />
+
+    </group>
+    <item android:title="Profile">
+        <menu>
+            <item
+                android:id="@+id/nav_account"
+                android:icon="@drawable/ic_account"
+                android:title="Profile" />
+            <item
+                android:id="@+id/nav_fav"
+                android:icon="@drawable/ic_favorite_black_24dp"
+                android:title="My Favorites" />
+
+
+        </menu>
+
+    </item>
+</menu>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#b8292f</color>
+    <color name="colorPrimaryDark">#9d2126</color>
+    <color name="colorAccent">#e0ddcf</color>
+    <color name="bonesRed">#b8292f</color>
+    <color name="bonesBeige">#e0ddcf</color>
+    <color name="bonesBeige2">#f5f3ec</color>
+    <color name="bonesYellow">#ffea8a</color>
+    <color name="bonesGray">#303030</color>
+    <color name="bonesDarkRed">#9d2126</color>
+    <color name="bonesWhite">#ffffff</color>
+</resources>
