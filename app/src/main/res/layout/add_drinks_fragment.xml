@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bonesWhite"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/edit_drink_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:hint="@string/name"
+        android:inputType="text"
+        android:textColor="@color/bonesDarkRed"
+        android:textColorHighlight="@color/bonesDarkRed"
+        android:textColorHint="@color/bonesDarkRed"
+        android:textColorLink="@color/bonesDarkRed"></EditText>
+
+    <EditText
+        android:id="@+id/edit_drink_desc"
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="@string/description"
+        android:textColor="@color/bonesDarkRed"
+        android:textColorHint="@color/bonesDarkRed"
+        android:inputType="textMultiLine"></EditText>
+
+    <EditText
+        android:id="@+id/edit_drink_price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/bonesDarkRed"
+        android:textColor="@color/bonesDarkRed"
+        android:layout_marginTop="8dp"
+        android:inputType="number|numberDecimal"
+        android:hint="@string/price"></EditText>
+
+    <EditText
+        android:id="@+id/edit_drink_capacity"
+        android:textColorHint="@color/bonesDarkRed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/bonesDarkRed"
+        android:layout_marginTop="8dp"
+        android:inputType="number|numberDecimal"
+        android:hint="@string/weight"></EditText>
+</LinearLayout>

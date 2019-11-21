@@ -1,15 +1,29 @@
 <resources>
     <string name="app_name">Projectapp</string>
     <string name="welcome_page" translatable="false">Join Bone\'s Family Club</string>
-    <string name="to_login">Log In</string>
+    <string name="log_in">Log In</string>
     <string name="to_sign_up">Sign Up Now!</string>
     <string name="user_name">user name</string>
     <string name="nav_drawer_open">Open Navigation Drawer</string>
     <string name="nav_drawer_close">Close Navigation Drawer</string>
-    <string name="menu_item">Menu Item</string>
+    <string name="name">Name</string>
     <string name="coupon_item">Coupons</string>
     <string name="profile_fragment">profile fragment</string>
     <string name="news_feed_fragment">News Feed</string>
     <string name="family_club">Bone\'s Family Club</string>
+    <string name="description">Description</string>
+    <string name="price">Price KR-,</string>
+    <string name="food_image">food Image</string>
+    <string name="add_food">Add Food</string>
+    <string name="add_drink">Add Drink</string>
+    <string name="weight">Enter Weight (grams)</string>
+    <string name="capacity">Enter Capacity (ml)</string>
+    <string name="email_hint">Enter Email</string>
+    <string name="password_hint">Enter password</string>
+    <string name="password_v_hint">Enter password again</string>
+    <string name="user_email">email@smt.com</string>
+
+
+
 
 </resources>

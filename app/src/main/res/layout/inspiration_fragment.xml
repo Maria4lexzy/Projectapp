@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bonesWhite"
+android:layout_margin="8dp"
+    android:orientation="vertical"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/arvo_bold"
+            android:text="Meal Name:"
+            android:textColor="@color/bonesDarkRed"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/itv_nam"
+            android:layout_width="0dp"
+
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:fontFamily="@font/arvo_bold"
+            android:text=""
+
+            android:textColor="@color/bonesGray"
+            android:textSize="15sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/arvo_bold"
+            android:text="Meal Category:"
+            android:textColor="@color/bonesDarkRed"
+            android:textSize="20sp" ></TextView>
+        <TextView
+            android:id="@+id/itv_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:fontFamily="@font/arvo_bold"
+            android:text=""
+            android:textColor="@color/bonesGray"
+            android:textSize="15sp" ></TextView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:fontFamily="@font/arvo_bold"
+            android:text="Instructions:"
+            android:textColor="@color/bonesDarkRed"
+            android:textSize="20sp" ></TextView>
+        <TextView
+            android:id="@+id/itv_instruction_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:fontFamily="@font/arvo_bold"
+            android:text="Click to view instructions"
+            android:clickable="true"
+            android:textColor="@color/bonesGray"
+            android:textSize="15sp" ></TextView>
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+       android:textSize="15sp"
+        android:textColor="@color/bonesGray"
+        android:text=""
+        android:id="@+id/itv_instructions"
+        android:scrollbars="vertical"
+        ></TextView>
+
+
+
+
+
+</LinearLayout>
