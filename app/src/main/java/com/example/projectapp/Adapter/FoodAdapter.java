@@ -19,7 +19,7 @@ import java.util.List;
 public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodHolder> {
 private List<Food>foodList;
  private Context context;
-
+private OnListIemClickListener listListener;
 public  FoodAdapter(List<Food> foodList, Context context){
     this.foodList=foodList;
     this.context=context;
@@ -63,7 +63,21 @@ public FoodHolder(View itemView){
     tv_food_dec=itemView.findViewById(R.id.tv_food_desc);
     tv_food_name=itemView.findViewById(R.id.tv_food_name);
     tv_food_price=itemView.findViewById(R.id.tv_price);
-    tv_food_weight=itemView.findViewById(R.id.tv_food_weight);}
+    tv_food_weight=itemView.findViewById(R.id.tv_food_weight);
+itemView.setOnClickListener(new View.OnClickListener(){
+    @Override
+    public void onClick(View v) {
+        int position=getAdapterPosition();
+        if(listListener!=null && position!=RecyclerView.NO_POSITION){
+        listListener.OnListItemClick(foodList.get(position));
+    }}
+});
+}
+    }
+    public  interface  OnListIemClickListener{
+    void OnListItemClick(Food food);
+    }public void  setOnListItemCLickListener(OnListIemClickListener listListener){
+    this.listListener=listListener;
     }
 
 }

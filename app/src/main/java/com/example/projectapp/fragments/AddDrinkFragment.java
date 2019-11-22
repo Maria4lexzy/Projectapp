@@ -1,6 +1,5 @@
 package com.example.projectapp.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -13,22 +12,16 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.projectapp.R;
 import com.example.projectapp.database.Drinks;
 import com.example.projectapp.database.viewmodel.DrinkViewModel;
-import com.example.projectapp.login.LoginActivity;
 
 
 public class AddDrinkFragment extends Fragment {
-   /* public class MenuFragment extends Fragment {
+   /* public class FoodFragment extends Fragment {
         public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
             View rootView=inflater.inflate(R.layout.add_food_fragment,container,false);
             return rootView;
@@ -57,9 +50,7 @@ public class AddDrinkFragment extends Fragment {
 editTextWeight=rootView.findViewById(R.id.edit_drink_capacity);
         editTextPrice=rootView.findViewById(R.id.edit_drink_price);
 
-       // ( (AppCompatActivity) getActivity()).getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-   //     rootView.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
-  //      ((AppCompatActivity)getActivity()).getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
+
 drinksViewModel = ViewModelProviders.of(this).get(DrinkViewModel.class);
 
 
@@ -78,7 +69,7 @@ public void saveDrink(){
 
     Drinks drink=new Drinks(name, desc,price, capacity);
      if(name.trim().isEmpty() || desc.trim().isEmpty()|| priceString.trim().isEmpty()|| capacityString.trim().isEmpty()) {
-         Toast.makeText(getActivity(), "Fill out all fields", Toast.LENGTH_SHORT).show();
+         Toast.makeText(getActivity(), "Please fill out all fields", Toast.LENGTH_SHORT).show();
 
 
 
@@ -98,7 +89,7 @@ public void saveDrink(){
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
       inflater=getActivity().getMenuInflater();
         inflater.inflate(R.menu.add_drink_menu, menu);
-        Toast.makeText(getActivity(), "Add something new to the Menu :)", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Add something new to the  drinks Menu :)", Toast.LENGTH_SHORT).show();
            super.onCreateOptionsMenu(menu, inflater);
     }
 
@@ -107,7 +98,9 @@ public void saveDrink(){
         switch (item.getItemId()){
             case R.id.save_drink:
                 saveDrink();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new MenuFragment()).commit();
+                Toast.makeText(getActivity(), "Drink  item saved", Toast.LENGTH_SHORT).show();
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DrinksFragment()).commit();
                            return  true;
             default:
 

@@ -84,7 +84,7 @@ app:cardBackgroundColor="@color/bonesWhite"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="@font/arvo_bold"
-            android:text="DKK"
+            android:text="@string/currency"
             android:textColor="@color/bonesBeige"
             android:textSize="30sp" />
     </RelativeLayout>

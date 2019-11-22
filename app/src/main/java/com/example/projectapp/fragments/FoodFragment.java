@@ -1,5 +1,6 @@
 package com.example.projectapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -22,7 +24,6 @@ import com.example.projectapp.Adapter.FoodAdapter;
 import com.example.projectapp.R;
 
 import com.example.projectapp.database.Food;
-import com.example.projectapp.database.viewmodel.DrinkViewModel;
 import com.example.projectapp.database.viewmodel.FoodViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,7 +31,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class MenuFragment extends Fragment {
+public class FoodFragment extends Fragment {
 
 
     private FloatingActionButton addFoodbtn;
@@ -39,8 +40,8 @@ public class MenuFragment extends Fragment {
     private RecyclerView recyclerView;
     private List<Food> foods;
 private FoodViewModel foodViewModel;
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
+public static final int EDIT_FOOD_ITEM_REQ=1;
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
         View rootView=inflater.inflate(R.layout.menu_fragment,container,false);
 
         addFoodbtn =rootView.findViewById(R.id.add_btn);
@@ -67,7 +68,7 @@ private FoodViewModel foodViewModel;
             @Override
             public void onClick(View v) {
 
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AddFoodFragment()).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AddFoodFragment()).addToBackStack(null).commit();
 
             }
         });
@@ -80,9 +81,10 @@ private FoodViewModel foodViewModel;
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 foodViewModel.delete(adapter.getFoodAt(viewHolder.getAdapterPosition()));
-
+Toast.makeText(getActivity(), "Food  item deleted", Toast.LENGTH_SHORT).show();
             }
         }).attachToRecyclerView(recyclerView);
+
         return rootView;
 
     }
@@ -104,6 +106,7 @@ private FoodViewModel foodViewModel;
         switch (item.getItemId()) {
             case R.id.delete_all_food:
                 foodViewModel.deleteAll();
+                Toast.makeText(getActivity(), "All food  items have been deleted", Toast.LENGTH_SHORT).show();
 
               //  Toast.makeText(getActivity(), "All Drink items have been deleted", Toast.LENGTH_SHORT).show();
 

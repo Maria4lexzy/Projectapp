@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bonesWhite"
-android:layout_margin="8dp"
+    android:background="@color/bonesRed"
+
     android:orientation="vertical"
 
     >
@@ -15,28 +15,34 @@ android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-        android:layout_margin="8dp"
+    android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="0dp"
+
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:fontFamily="@font/arvo_bold"
-            android:text="Meal Name:"
-            android:textColor="@color/bonesDarkRed"
-            android:textSize="20sp" />
+            android:text="@string/meal_name"
+            android:textColor="@color/bonesWhite"
+            android:textSize="20sp"
+            />
 
         <TextView
             android:id="@+id/itv_nam"
             android:layout_width="0dp"
 
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:fontFamily="@font/arvo_bold"
-            android:text=""
+            android:text="@string/empty"
+            android:paddingBottom="4dp"
 
-            android:textColor="@color/bonesGray"
+            android:ellipsize="end"
+            android:textColor="@color/bonesWhite"
             android:textSize="15sp" />
 
 
@@ -45,62 +51,94 @@ android:layout_margin="8dp"
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:fontFamily="@font/arvo_bold"
-            android:text="Meal Category:"
-            android:textColor="@color/bonesDarkRed"
+            android:text="@string/category"
+            android:textColor="@color/bonesWhite"
             android:textSize="20sp" ></TextView>
         <TextView
             android:id="@+id/itv_category"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="4"
+            android:paddingBottom="5dp"
+
             android:fontFamily="@font/arvo_bold"
-            android:text=""
-            android:textColor="@color/bonesGray"
+            android:text="@string/empty"
+            android:textColor="@color/bonesWhite"
             android:textSize="15sp" ></TextView>
     </LinearLayout>
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
         android:orientation="horizontal">
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:fontFamily="@font/arvo_bold"
-            android:text="Instructions:"
-            android:textColor="@color/bonesDarkRed"
+            android:text="@string/tutorial"
+            android:paddingBottom="4dp"
+
+            android:textColor="@color/bonesWhite"
             android:textSize="20sp" ></TextView>
         <TextView
-            android:id="@+id/itv_instruction_title"
+            android:id="@+id/itv_link"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="5"
             android:fontFamily="@font/arvo_bold"
-            android:text="Click to view instructions"
+            android:text="@string/empty"
+            android:autoLink="web"
+            android:linksClickable="true"
             android:clickable="true"
-            android:textColor="@color/bonesGray"
+            android:paddingBottom="4dp"
+            android:textColor="@color/bonesWhite"
+            android:padding="8dp"
             android:textSize="15sp" ></TextView>
     </LinearLayout>
-    <TextView
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-       android:textSize="15sp"
-        android:textColor="@color/bonesGray"
-        android:text=""
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/itv_instruction_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:padding="4dp"
+            android:background="@color/bonesDarkRed"
+            android:fontFamily="@font/arvo_bold"
+            android:text="@string/instructions_click"
+            android:clickable="true"
+            android:textColor="@color/bonesYellow"
+            android:textSize="20sp" ></TextView>
+    </LinearLayout>
+
+    <TextView
         android:id="@+id/itv_instructions"
+        android:layout_width="match_parent"
+        android:layout_height="471dp"
+        android:layout_margin="10dp"
+
+        android:padding="8dp"
         android:scrollbars="vertical"
-        ></TextView>
+        android:text="@string/empty"
+        android:textColor="@color/bonesWhite"
+        android:textSize="18sp"></TextView>
 
 
 

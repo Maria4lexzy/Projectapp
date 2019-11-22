@@ -1,4 +1,4 @@
-package com.example.projectapp.login;
+package com.example.projectapp.Activities;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;

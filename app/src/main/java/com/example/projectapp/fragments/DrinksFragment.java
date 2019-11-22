@@ -19,7 +19,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.projectapp.Adapter.DrinksAdapter;
-import com.example.projectapp.MainActivity;
 import com.example.projectapp.R;
 import com.example.projectapp.database.Drinks;
 import com.example.projectapp.database.viewmodel.DrinkViewModel;
@@ -52,7 +51,7 @@ private DrinkViewModel drinksViewModel;
            @Override
             public void onClick(View v) {
 
-              getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AddDrinkFragment()).commit();
+              getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AddDrinkFragment()).addToBackStack(null).commit();
 
             }
         });

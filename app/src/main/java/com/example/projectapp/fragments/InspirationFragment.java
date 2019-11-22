@@ -1,7 +1,7 @@
 package com.example.projectapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -29,6 +29,7 @@ public class InspirationFragment extends Fragment {
     TextView tv_category;
     TextView tv_instructions;
     TextView tv_instructions_title;
+    TextView   tv_link;
 
 
    // String myBaseUrl=" https://www.themealdb.com/api/json/v1/1/random.php/meals/";
@@ -42,7 +43,7 @@ public class InspirationFragment extends Fragment {
         tv_instructions_title=rootView.findViewById(R.id.itv_instruction_title);
         tv_instructions=rootView.findViewById(R.id.itv_instructions);
         tv_instructions.setVisibility(View.GONE);
-
+tv_link=rootView.findViewById(R.id.itv_link);
         viewModel= ViewModelProviders.of(this).get(MealViewModel.class);
         viewModel.getMeal().observe(this, new Observer<Meal>() {
             @Override
@@ -51,7 +52,7 @@ public class InspirationFragment extends Fragment {
 
 
 
-
+tv_link.setText(meal.getStrYoutube());
 
              tv_name.setText(meal.getStrMeal());
              tv_category.setText(meal.getStrCategory());
@@ -73,9 +74,7 @@ tv_instructions_title.setOnClickListener(new View.OnClickListener() {
         return rootView;
     }
 
-    public  void shareFood(){
 
-    }
 
     public  void toggle_contents(View view){
        tv_instructions.setVisibility(tv_instructions.isShown()? view.GONE: view.VISIBLE);
@@ -100,7 +99,7 @@ tv_instructions_title.setOnClickListener(new View.OnClickListener() {
                 shareFood();
 
                 //   Toast.makeText(getActivity(), "Food added to Menu", Toast.LENGTH_SHORT).show();
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MenuFragment()).commit();
+               // getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FoodFragment()).commit();
                 break;
             case R.id.generate_food:
                 viewModel.updateMeal();
@@ -111,6 +110,20 @@ tv_instructions_title.setOnClickListener(new View.OnClickListener() {
 
 
     }
+    public  void shareFood(){
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_EMAIL, "");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Recipe for: "+tv_name.getText().toString());
+        String str="";
+        str+="Category: "+tv_category.getText().toString()+"\n";
+        str+="\nVideo tutorial: "+tv_link.getText().toString()+"\n";
+        str+="\nInstructions: "+tv_instructions.getText().toString();
+        intent.putExtra(Intent.EXTRA_TEXT, str);
+        startActivity(intent);
+
+    }
+
 
 
 }

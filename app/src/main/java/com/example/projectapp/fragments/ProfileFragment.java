@@ -12,8 +12,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import com.example.projectapp.R;
-import com.example.projectapp.login.LoginActivity;
-import com.example.projectapp.login.UserInfo;
+import com.example.projectapp.Activities.LoginActivity;
+import com.example.projectapp.Activities.UserInfo;
 import com.google.firebase.auth.FirebaseAuth;
 
 

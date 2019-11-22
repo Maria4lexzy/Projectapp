@@ -92,12 +92,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:fontFamily="@font/lobster_two_bold_italic"
-android:textSize="30sp"
+
             android:text="@string/to_sign_up"
-            android:background="@color/colorAccent"
+            android:theme="@style/button_styles"
             android:layout_marginTop="15dp"
-            android:textColor="@color/colorPrimary" />
+            />
 
         <TextView
             android:layout_width="wrap_content"

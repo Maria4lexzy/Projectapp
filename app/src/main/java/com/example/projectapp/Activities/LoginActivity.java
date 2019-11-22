@@ -1,4 +1,4 @@
-package com.example.projectapp.login;
+package com.example.projectapp.Activities;
 
 
 
@@ -23,7 +23,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.projectapp.MainActivity;
 import com.example.projectapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;

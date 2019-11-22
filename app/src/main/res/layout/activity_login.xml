@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/bonesRed"
 
-    tools:context=".login.LoginActivity">
+    tools:context=".Activities.LoginActivity">
 
 
     <EditText
@@ -82,12 +82,12 @@ android:fontFamily="@font/arvo_bold"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:background="@color/colorAccent"
+     android:theme="@style/button_styles"
         android:enabled="true"
-        android:fontFamily="@font/lobster_two_bold_italic"
+
         android:text="@string/log_in"
-        android:textColor="@color/colorPrimary"
-        android:textSize="30sp"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
