@@ -24,4 +24,13 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.example.projectapp", appContext.getPackageName());
     }
+  //Mocking slide
+  /*  @Mock
+    Context mockContext;
+
+    @Test
+    public void readStringFromContext_localizrizedString*/
+
+  //RoboElectric
+
 }

@@ -3,10 +3,25 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+
+</style>
+<style name="button_styles">
+    <item name="android:fontFamily">@font/lobster_two_bold_italic</item>
+    <item name="android:textSize">30sp</item>
+    <item name="android:background">@color/bonesBeige
+    </item>
+    <item name="android:textColor">@color/bonesDarkRed</item>
+
+</style>
+    <style name="toolbar_title">
+    <item name="android:fontFamily">@font/lobster_two_bold_italic</item>
+    <item name="android:textSize">30sp</item>
+
+        <item name="android:textColor">@color/bonesWhite</item></style>
+    <style name="fab_style">
 
     </style>
-
 </resources>
