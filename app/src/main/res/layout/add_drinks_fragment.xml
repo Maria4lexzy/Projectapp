@@ -46,5 +46,5 @@
         android:textColor="@color/bonesDarkRed"
         android:layout_marginTop="8dp"
         android:inputType="number|numberDecimal"
-        android:hint="@string/weight"></EditText>
+        android:hint="@string/capacity"></EditText>
 </LinearLayout>

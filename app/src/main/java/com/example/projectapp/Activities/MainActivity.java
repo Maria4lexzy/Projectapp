@@ -27,18 +27,19 @@ import com.google.android.material.navigation.NavigationView;
 import com.example.projectapp.fragments.*;
 
 
-public class MainActivity extends AppCompatActivity implements  NavigationView.OnNavigationItemSelectedListener{
-Toolbar myToolbar;
-View mHeaderView;
-    private  TextView htv_name;
-    private  TextView   htv_email;
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    Toolbar myToolbar;
+    View mHeaderView;
+    private TextView htv_name;
+    private TextView htv_email;
     private ImageView profilePic;
     private static final int CAMERA_REQUEST = 1888;
     private static final int MY_PERMISSIONS_REQUEST = 100;
-    UserInfo   userInfo=UserInfo.getInstance();
+    UserInfo userInfo = UserInfo.getInstance();
 
-private DrawerLayout drawerLayout;
-NavigationView navigationView;
+    private DrawerLayout drawerLayout;
+    NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,44 +47,44 @@ NavigationView navigationView;
 
 //welcome user
         //Tool bar
-        myToolbar=findViewById(R.id.my_toolbar);
-       // myToolbar.setTitle("Bone\'s");
+        myToolbar = findViewById(R.id.my_toolbar);
+        // myToolbar.setTitle("Bone\'s");
         setSupportActionBar(myToolbar);
 
-        navigationView=findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        drawerLayout=findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(this, drawerLayout, myToolbar, R.string.nav_drawer_open,R.string.nav_drawer_close);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, myToolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        if(savedInstanceState==null){
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FoodFragment()).commit();
-        navigationView.setCheckedItem(R.id.nav_menu);}
+        if (savedInstanceState == null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FoodFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_menu);
+        }
 
         //Header
-        navigationView=findViewById(R.id.nav_view);
-        mHeaderView =navigationView.getHeaderView(0);
+        navigationView = findViewById(R.id.nav_view);
+        mHeaderView = navigationView.getHeaderView(0);
 
         //Header content
-        htv_email=mHeaderView.findViewById(R.id.tv_user_email_nav);
-        htv_name=mHeaderView.findViewById(R.id.tv_username_nav);
-profilePic=findViewById(R.id.profile_img);
+        htv_email = mHeaderView.findViewById(R.id.tv_user_email_nav);
+        htv_name = mHeaderView.findViewById(R.id.tv_username_nav);
+        profilePic = findViewById(R.id.profile_img);
         //set username and password
-        htv_email.setText(userInfo.getFirebaseUser().getEmail());
-        htv_name.setText(userInfo.getFirebaseUser().getDisplayName());
+      htv_email.setText(userInfo.getFirebaseUser().getEmail());
+      htv_name.setText(userInfo.getFirebaseUser().getDisplayName());
 
 
     }
 
-   
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
+        super.onActivityResult(requestCode, resultCode, data);
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
         fragment.onActivityResult(requestCode, resultCode, data);
-        super.onActivityResult(requestCode, resultCode, data);
         ImageStorage imageToISModule = new ImageStorage();
         if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
@@ -114,24 +115,25 @@ profilePic=findViewById(R.id.profile_img);
         }
 
     }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()){
+        switch (menuItem.getItemId()) {
             case R.id.nav_menu:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FoodFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FoodFragment()).commit();
                 break;
             case R.id.nav_drinks:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DrinksFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DrinksFragment()).commit();
                 break;
             case R.id.nav_family_club:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new FamilyClub()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new FamilyClub()).commit();
                 break;
             case R.id.nav_fav:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new InspirationFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new InspirationFragment()).commit();
                 break;
             case R.id.nav_account:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ProfileFragment()).commit();
-break;
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ProfileFragment()).commit();
+                break;
 
         }
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -139,10 +141,9 @@ break;
     }
 
     @Override
-    public void onBackPressed(){
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START);
-        }
-        else      super.onBackPressed();
+        } else super.onBackPressed();
     }
 }
