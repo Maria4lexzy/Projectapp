@@ -1,5 +1,6 @@
 package com.example.projectapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -27,6 +28,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.app.Activity.RESULT_OK;
+
 
 public class DrinksFragment extends Fragment {
    /* public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
@@ -38,10 +41,11 @@ public class DrinksFragment extends Fragment {
 private DrinkViewModel drinksViewModel;
     private FloatingActionButton addDrinkButton;
 
-    private DrinksAdapter adapter;
-    private RecyclerView recyclerView;
-    private List<Drinks> drinks;
 
+    private RecyclerView recyclerView;
+    private List<Drinks> drinks=new ArrayList<>();
+    private DrinksAdapter adapter;
+public static final int EDIT_DRINK=1;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
         View rootView=inflater.inflate(R.layout.drink_fragment,container,false);
@@ -73,8 +77,11 @@ private DrinkViewModel drinksViewModel;
 
                 adapter=new DrinksAdapter(drinks,getActivity());
                 recyclerView.setAdapter(adapter);
+
             }
         });
+
+
 new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT) {
     @Override
     public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
@@ -88,9 +95,40 @@ drinksViewModel.delete(adapter.getDrinkAt(viewHolder.getAdapterPosition()));
 
     }
 }).attachToRecyclerView(recyclerView);
+
+
         return rootView;
 
     }
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+         if (requestCode == EDIT_DRINK && resultCode == RESULT_OK) {
+            int id = data.getIntExtra(AddDrinkFragment.EXTRA_ID, -1);
+
+            if (id == -1) {
+                Toast.makeText(getActivity(), "Unable to update entry", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            String name = data.getStringExtra(AddDrinkFragment.EXTRA_NAME);
+            String description = data.getStringExtra(AddDrinkFragment.EXTRA_DESC);
+            double price = data.getIntExtra(AddDrinkFragment.EXTRA_PRICE, 1);
+             double capacity = data.getIntExtra(AddDrinkFragment.EXTRA_CAPACITY, 1);
+
+
+             Drinks drink = new Drinks(name, description, price, capacity);
+            drink.setId(id);
+            drinksViewModel.update(drink);
+
+            Toast.makeText(getActivity(), "Drink item updated", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(getActivity(), "Drink item was not saved", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

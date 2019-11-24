@@ -18,6 +18,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
+
+        android:clickable="true"
+        android:onClick="onClickImg"
+
         app:srcCompat="@mipmap/ic_launcher" />
     <TextView
         android:id="@+id/tv_username_nav"

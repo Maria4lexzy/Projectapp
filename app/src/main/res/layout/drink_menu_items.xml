@@ -87,5 +87,6 @@ app:cardBackgroundColor="@color/bonesWhite"
             android:text="@string/currency"
             android:textColor="@color/bonesBeige"
             android:textSize="30sp" />
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

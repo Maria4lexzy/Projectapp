@@ -1,5 +1,6 @@
 package com.example.projectapp.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -21,13 +22,21 @@ import com.example.projectapp.database.viewmodel.DrinkViewModel;
 
 
 public class AddDrinkFragment extends Fragment {
-   /* public class FoodFragment extends Fragment {
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
-            View rootView=inflater.inflate(R.layout.add_food_fragment,container,false);
-            return rootView;
-        }
 
-    }*/
+    public static final String EXTRA_ID ="com.example.projectapp.fragments.EXTRA_ID";
+    public static final String EXTRA_NAME ="com.example.projectapp.fragments.EXTRA_NAME ";
+    public static final String EXTRA_DESC ="com.example.projectapp.fragments.EXTRA_DESC ";
+    public static final String EXTRA_PRICE ="com.example.projectapp.fragments.EXTRA_PRICE ";
+    public static final String EXTRA_CAPACITY ="com.example.projectapp.fragments.EXTRA_CAP ";
+
+
+    /* public class FoodFragment extends Fragment {
+            public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
+                View rootView=inflater.inflate(R.layout.add_food_fragment,container,false);
+                return rootView;
+            }
+
+        }*/
    private DrinkViewModel drinksViewModel;
     private EditText editTextName;
     private  EditText editTextDesc;
@@ -77,6 +86,7 @@ public void saveDrink(){
          drinksViewModel.insert(drink);
 
      }
+
 
 }
 

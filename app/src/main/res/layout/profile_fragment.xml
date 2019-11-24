@@ -68,4 +68,6 @@ android:paddingBottom="10dp"
         android:layout_marginEnd="30dp"
         android:text="@string/sign_out"
         android:textSize="30sp" />
+
+
 </RelativeLayout>
